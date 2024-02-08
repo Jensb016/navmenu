@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON data
+var jsonData = '[{"title": "home","url" : "/"},{"title" : "producten","url" : "/producten/"},{"title": "Overons","url" : "/overons/"},{"title": "contact","url" : "/contact/"}]';
+
+// Parse JSON data
+var menuItems = JSON.parse(jsonData);
+
+// Create a new ul element
+var ul = document.createElement('ul');
+
+// Loop through each menu item
+for(var i = 0; i < menuItems.length; i++) {
+    // Create a new li element
+    var li = document.createElement('li');
+    
+    // Create a new a element
+    var a = document.createElement('a');
+    a.textContent = menuItems[i].title;
+    a.href = menuItems[i].url;
+    
+    // Append the a to the li, and the li to the ul
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+
+// Append the ul to the body (or any other container element)
+document.body.appendChild(ul);
+    </script>
+</body>
+</html>
